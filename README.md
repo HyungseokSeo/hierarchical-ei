@@ -59,16 +59,15 @@ pip install -e .
 ```
 hierarchical-ei/
 │
-├── README.md                     ✅ Provided (hierarchical_ei_readme)
-├── setup.py                      ✅ Provided (setup_py)
-├── requirements.txt              ✅ Provided (requirements_txt)
-├── Dockerfile                    ✅ Provided (docker_file)
-├── CONTRIBUTING.md               ✅ Provided (contributing_guide)
+├── README.md                   
+├── setup.py                   
+├── requirements.txt            
+├── Dockerfile                  
+├── CONTRIBUTING.md            
 ├── LICENSE                      
-├── .gitignore                    ❌ Not provided (use standard Python gitignore)
 │
 ├── configs/
-│  ├── default.yaml              ✅ Provided (default_config)
+│  ├── default.yaml             
 │  │
 ├── hierarchical_ei/              # Main package directory
 │   ├── models/
@@ -87,7 +86,6 @@ hierarchical-ei/
 │
 ├── scripts/
 │   ├── download_data.py         ✅ Provided (download_data_script.py) - RENAME
-│   ├── run_experiments.sh       ❌ Not provided (create bash script)
 │   └── demo_realtime.py         ✅ Provided (demo_script.py) - MOVE HERE
 │
 ├── notebooks/
