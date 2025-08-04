@@ -1,0 +1,100 @@
+# Default configuration for Hierarchical Emotional Intelligence Model
+
+model:
+  # Level 1: Micro-expressions
+  level1_dim: 256
+  level1_encoder_dims: [3, 64, 128, 256]
+  level1_window_size: 15  # frames (~500ms at 30fps)
+  
+  # Level 2: Emotional states
+  level2_dim: 512
+  level2_heads: 8
+  level2_layers: 6
+  level2_window_size: 150  # frames (~5 seconds at 30fps)
+  
+  # Level 3: Affective patterns
+  level3_dim: 1024
+  level3_memory_size: 100
+  level3_memory_dim: 512
+  
+  # Active inference
+  free_energy_beta: 0.1
+  precision_lr: 0.01
+  expected_free_energy_horizon: 10
+
+training:
+  # Data
+  data_dir: "data/emotion_datasets"
+  sequence_length: 300  # 10 seconds at 30fps
+  batch_size: 32
+  num_workers: 4
+  
+  # Optimization
+  learning_rate: 1e-4
+  weight_decay: 0.01
+  warmup_steps: 10000
+  
+  # Training schedule
+  num_epochs: 100
+  jepa_epochs: 50  # Phase 1: JEPA pre-training
+  ai_epochs: 50    # Phase 2: Active inference fine-tuning
+  
+  # Checkpointing
+  save_every: 10
+  validate_every: 5
+  
+  # Loss weights
+  loss_weights:
+    jepa1: 1.0
+    jepa2: 1.0
+    jepa3: 1.0
+    emotion: 2.0
+    free_energy: 0.5
+    precision_reg: 0.01
+
+data:
+  # Dataset paths
+  fer2013_path: "data/fer2013"
+  affectnet_path: "data/affectnet"
+  cmu_mosei_path: "data/CMU-MOSEI"
+  
+  # Preprocessing
+  image_size: 64
+  audio_sample_rate: 16000
+  audio_n_mels: 128
+  
+  # Augmentation
+  augmentation:
+    # Visual augmentations
+    random_crop: true
+    random_flip: true
+    color_jitter: true
+    rotation_range: 15
+    
+    # Audio augmentations
+    time_stretch: true
+    pitch_shift: true
+    add_noise: true
+
+evaluation:
+  # Metrics
+  metrics:
+    - accuracy
+    - f1_score
+    - confusion_matrix
+    - emotional_trajectory_mse
+    - causal_reasoning_accuracy
+  
+  # Visualization
+  visualize_attention: true
+  plot_trajectories: true
+  save_predictions: true
+
+inference:
+  # Real-time processing
+  frame_buffer_size: 30
+  update_frequency: 10  # Hz
+  
+  # Thresholds
+  emotion_confidence_threshold: 0.7
+  action_threshold: 0.5 
