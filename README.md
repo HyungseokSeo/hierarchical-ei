@@ -58,27 +58,46 @@ pip install -e .
 
 ```
 hierarchical-ei/
-├── configs/               # Configuration files
-│   ├── default.yaml      # Default configuration
-│   ├── jepa/            # JEPA-specific configs
-│   └── active_inference/ # Active inference configs
-├── data/                 # Data loading and preprocessing
-│   ├── datasets/        # Dataset implementations
-│   ├── transforms/      # Data augmentations
-│   └── utils/          # Data utilities
-├── models/              # Model implementations
-│   ├── jepa/           # JEPA components
-│   ├── active_inference/ # Active inference modules
-│   └── hierarchical/    # Hierarchical framework
-├── training/            # Training scripts
-│   ├── pretrain.py     # JEPA pretraining
-│   ├── finetune.py     # Active inference finetuning
-│   └── evaluate.py     # Evaluation scripts
-├── experiments/         # Experiment configurations
-├── notebooks/          # Jupyter notebooks
-├── scripts/            # Utility scripts
-├── tests/              # Unit tests
-└── paper/              # LaTeX source and figures
+│
+├── README.md                     ✅ Provided (hierarchical_ei_readme)
+├── setup.py                      ✅ Provided (setup_py)
+├── requirements.txt              ✅ Provided (requirements_txt)
+├── Dockerfile                    ✅ Provided (docker_file)
+├── CONTRIBUTING.md               ✅ Provided (contributing_guide)
+├── LICENSE                      
+├── .gitignore                    ❌ Not provided (use standard Python gitignore)
+│
+├── configs/
+│  ├── default.yaml              ✅ Provided (default_config)
+│  │
+├── hierarchical_ei/              # Main package directory
+│   ├── models/
+│   │   ├── hierarchical_ei.py   ✅ Provided (hierarchical_ei_model.py) - RENAME/MOVE
+│   │   ├── jepa.py              ⚡ Extracted from hierarchical_ei_model.py
+│   │   └── active_inference.py  ⚡ Extracted from hierarchical_ei_model.py
+│   ├── training/
+│   │   ├── train.py             ✅ Provided (training_script.py) - RENAME/MOVE
+│   │   ├── evaluate.py          ✅ Provided (evaluation_script.py) - RENAME/MOVE
+│   │   └── losses.py            ⚡ Extracted from hierarchical_ei_model.py
+│   ├── data/
+│   │   ├── datasets.py          ⚡ Extracted from train_hierarchical_ei.py
+│   └── utils/
+│       ├── visualization.py     ⚡ Extract from demo_realtime.py
+│       └── metrics.py           ⚡ Extract from evaluate.py
+│
+├── scripts/
+│   ├── download_data.py         ✅ Provided (download_data_script.py) - RENAME
+│   ├── run_experiments.sh       ❌ Not provided (create bash script)
+│   └── demo_realtime.py         ✅ Provided (demo_script.py) - MOVE HERE
+│
+├── notebooks/
+│   ├── analysis_visualization.ipynb  ✅ Provided (analysis_notebook)
+|
+├── paper/
+│   ├── main.tex                 ✅ Provided (complete_paper_pdf)
+│   ├── references.bib           ✅ Provided (references_bibtex)
+
+
 ```
 
 ## 🚄 Quick Start
