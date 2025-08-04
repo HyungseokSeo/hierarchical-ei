@@ -1,0 +1,46 @@
+# Dockerfile for Hierarchical Emotional Intelligence Model
+
+FROM pytorch/pytorch:1.13.0-cuda11.6-cudnn8-runtime
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    wget \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    libgomp1 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libxi6 \
+    libxrandr2 \
+    libxcursor1 \
+    libxcomposite1 \
+    libasound2 \
+    libatlas-base-dev \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy project files
+COPY . .
+
+# Install the package
+RUN pip install -e .
+
+# Create necessary directories
+RUN mkdir -p checkpoints data logs figures
+
+# Expose ports for Jupyter and TensorBoard
+EXPOSE 8888 6006
+
+# Default command
+CMD ["python", "-m", "hierarchical_ei.train", "--config", "configs/default.yaml"]
