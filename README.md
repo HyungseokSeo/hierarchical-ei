@@ -1,239 +1,121 @@
-# hierarchical-ei
- Hierarchical Emotional Intelligence: A Unified JEPA-Active Inference Framework
+# Hierarchical Emotional Intelligence Framework
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![PyTorch 1.13](https://img.shields.io/badge/PyTorch-1.13+-ee4c2c.svg)](https://pytorch.org/)
-[![Paper](https://img.shields.io/badge/paper-arXiv-b31b1b.svg)](https://arxiv.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Official implementation of "Hierarchical Emotional Intelligence: A Unified JEPA-Active Inference Framework"
+Official implementation of **"Hierarchical Emotional Intelligence through Joint Embedding Predictive Architecture and Active Inference"** submitted to IEEE Transactions on Affective Computing.
 
 ## 📋 Abstract
 
-This repository contains the PyTorch implementation of our hierarchical framework that unifies Joint Embedding Predictive Architecture (JEPA) with active inference for emotional intelligence. The framework operates across three hierarchical levels: micro-expressions (10-500ms), emotional states (1s-5min), and affective patterns (5min-days).
+This work presents a novel framework for emotional intelligence that combines Joint Embedding Predictive Architecture (JEPA) with Active Inference principles, treating emotional dynamics as hierarchical free energy minimization processes. We formalize valence as the first-order derivative (dF/dt) and arousal as the second-order derivative (d²F/dt²) of free energy.
 
 ## 🚀 Key Features
 
-- **Hierarchical JEPA Implementation**: Three-level architecture with specialized encoders and predictors
-- **Active Inference Integration**: Precision-weighted prediction errors and free energy minimization
-- **Multi-scale Temporal Modeling**: From micro-expressions to long-term affective patterns
-- **Emergent EI Capabilities**: Perception, understanding, facilitation, and regulation
-- **Modular Design**: Easy to extend and experiment with different architectures
+- **JEPA-Active Inference Integration**: Novel architecture combining self-supervised learning with Bayesian brain principles
+- **Hierarchical Processing**: Multi-level emotional understanding with temporal abstraction
+- **Novel Metrics**: ERCS (Emotional Response Coherence Score) and CEDI (Contextual Emotional Dynamics Index)
+- **State-of-the-art Performance**: 71.3% accuracy on FER2013 with EfficientNet-B0
+- **Free Energy Formulation**: Mathematical framework for emotional dynamics
 
-## 📊 Results
-
-| Model | Emotion Recognition | State Prediction | Pattern Recognition | Causal Reasoning |
-|-------|-------------------|------------------|-------------------|------------------|
-| Baseline CNN | 71.2% | 52.3% | 45.7% | 38.4% |
-| Flat JEPA | 76.8% | 68.4% | 61.2% | 54.6% |
-| **Ours** | **81.7%** | **76.3%** | **73.8%** | **69.2%** |
-
-## 🛠️ Installation
-
-### Requirements
-
-- Python 3.8+
-- PyTorch 1.13+
-- CUDA 11.6+ (for GPU support)
-
-### Setup
-
+## 📦 Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/hierarchical-ei.git
+git clone https://github.com/HyungseokSeo/hierarchical-ei.git
 cd hierarchical-ei
 
-# Create conda environment
-conda create -n hierarchical_ei python=3.8
-conda activate hierarchical_ei
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
-pip install -r requirements.txt
-
-# Install the package
 pip install -e .
+pip install -r requirements.txt
 ```
 
-## 📁 Project Structure
-
-```
-hierarchical-ei/
-│
-├── README.md                   
-├── setup.py                   
-├── requirements.txt            
-├── Dockerfile                  
-├── CONTRIBUTING.md            
-├── LICENSE                      
-│
-├── configs/
-│  ├── default.yaml             
-│  │
-├── hierarchical_ei/              # Main package directory
-│   ├── models/
-│   │   ├── hierarchical_ei.py   ✅ Provided (hierarchical_ei_model.py) - RENAME/MOVE
-│   │   ├── jepa.py              ⚡ Extracted from hierarchical_ei_model.py
-│   │   └── active_inference.py  ⚡ Extracted from hierarchical_ei_model.py
-│   ├── training/
-│   │   ├── train.py             ✅ Provided (training_script.py) - RENAME/MOVE
-│   │   ├── evaluate.py          ✅ Provided (evaluation_script.py) - RENAME/MOVE
-│   │   └── losses.py            ⚡ Extracted from hierarchical_ei_model.py
-│   ├── data/
-│   │   ├── datasets.py          ⚡ Extracted from train_hierarchical_ei.py
-│   └── utils/
-│       ├── visualization.py     ⚡ Extract from demo_realtime.py
-│       └── metrics.py           ⚡ Extract from evaluate.py
-│
-├── scripts/
-│   ├── download_data.py         ✅ Provided (download_data_script.py) - RENAME
-│   └── demo_realtime.py         ✅ Provided (demo_script.py) - MOVE HERE
-│
-├── notebooks/
-│   ├── analysis_visualization.ipynb  ✅ Provided (analysis_notebook)
-|
-├── paper/
-│   ├── main.tex                 ✅ Provided (complete_paper_pdf)
-│   ├── references.bib           ✅ Provided (references_bibtex)
-
-
-```
-
-## 🚄 Quick Start
-
-### 1. Download Datasets
-
-```bash
-# Download emotion recognition datasets
-python scripts/download_data.py --dataset fer2013
-python scripts/download_data.py --dataset affectnet
-python scripts/download_data.py --dataset cmu-mosei
-```
-
-### 2. Pretrain JEPA
-
-```bash
-# Pretrain Level 1 (micro-expressions)
-python training/pretrain.py --config configs/jepa/level1.yaml
-
-# Pretrain Level 2 (emotional states)
-python training/pretrain.py --config configs/jepa/level2.yaml
-
-# Pretrain Level 3 (affective patterns)
-python training/pretrain.py --config configs/jepa/level3.yaml
-```
-
-### 3. Active Inference Fine-tuning
-
-```bash
-# Fine-tune with active inference
-python training/finetune.py --config configs/active_inference/hierarchical.yaml
-```
-
-### 4. Evaluate
-
-```bash
-# Evaluate on test set
-python training/evaluate.py --checkpoint checkpoints/best_model.pth
-```
-
-## 📖 Detailed Usage
-
-### Training from Scratch
-
+## 🎯 Quick Start
 ```python
-from hierarchical_ei import HierarchicalEI
-from hierarchical_ei.configs import get_config
-
-# Load configuration
-config = get_config('configs/default.yaml')
+from heei.core import HierarchicalEmotionalIntelligence
+from heei.metrics import ERCS, CEDI
 
 # Initialize model
-model = HierarchicalEI(config)
+model = HierarchicalEmotionalIntelligence(
+    hierarchy_levels=3,
+    embedding_dim=768,
+    use_active_inference=True
+)
 
-# Train
-model.train()
-```
-
-### Using Pretrained Models
-
-```python
-# Load pretrained model
-model = HierarchicalEI.from_pretrained('checkpoints/pretrained.pth')
+# Load pretrained weights
+model.load_state_dict(torch.load('checkpoints/best_model.pth'))
 
 # Inference
-emotions = model.predict(video_path='path/to/video.mp4')
+emotions = model.predict(input_tensor)
+print(f"Valence: {emotions['valence']}, Arousal: {emotions['arousal']}")
 ```
 
-### Custom Dataset
-
-```python
-from hierarchical_ei.data import EmotionDataset
-
-# Create custom dataset
-dataset = EmotionDataset(
-    data_dir='path/to/data',
-    transform=transforms,
-    temporal_window=30
-)
-```
-
-## 🧪 Experiments
-
-Reproduce paper results:
-
+## 📊 Reproduce Paper Results
 ```bash
-# Run all experiments
-bash scripts/run_experiments.sh
+# Download datasets
+python scripts/download_data.py
 
-# Specific experiments
-python experiments/ablation_study.py
-python experiments/emergence_analysis.py
-python experiments/computational_efficiency.py
+# Train the full model
+python experiments/train_hierarchical.py \
+    --config experiments/configs/ieee_tac.yaml \
+    --dataset fer2013 \
+    --epochs 100
+
+# Evaluate with our metrics
+python experiments/evaluate.py \
+    --checkpoint checkpoints/best_model.pth \
+    --metrics ercs cedi accuracy
 ```
 
-## 📊 Visualization
+## 📈 Results
 
-Interactive visualizations in notebooks:
-- `notebooks/attention_visualization.ipynb`: Visualize hierarchical attention
-- `notebooks/emotion_trajectories.ipynb`: Plot emotional state transitions
-- `notebooks/free_energy_analysis.ipynb`: Analyze free energy minimization
+| Model | Dataset | Accuracy | ERCS | CEDI |
+|-------|---------|----------|------|------|
+| HEEI (Ours) | FER2013 | **71.3%** | **0.842** | **0.789** |
+| EfficientNet-B0 | FER2013 | 70.1% | 0.751 | 0.698 |
+| ResNet-50 | FER2013 | 68.5% | 0.723 | 0.672 |
 
-## 🤝 Contributing
+## 🧬 Model Architecture
+```
+Input → JEPA Encoder → Hierarchical Processing → Active Inference Module
+                              ↓
+                     Free Energy Computation
+                              ↓
+                    Emotional Dynamics (dF/dt, d²F/dt²)
+                              ↓
+                      Valence & Arousal Output
+```
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+## 📚 Citation
 
-## 📄 Citation
-
-If you use this code in your research, please cite:
-
+If you find this work useful, please cite:
 ```bibtex
-@article{hierarchical-ei-2024,
-  title={Hierarchical Emotional Intelligence: A Unified JEPA-Active Inference Framework},
-  author={Author Name and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024}
+@article{seo2025hierarchical,
+  title={Hierarchical Emotional Intelligence through Joint Embedding Predictive Architecture and Active Inference},
+  author={Seo, Hyungseok and Kim, Sung-Jin},
+  journal={IEEE Transactions on Affective Computing (submitted)},
+  year={2025}
 }
 ```
 
-## 📝 License
+## 🤝 Contributing
 
-This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Contact
+
+- **Author**: Hyungseok Seo
+- **Email**: [your-email]
+- **Lab**: Chungbuk National University, South Korea
+- **Advisor**: Prof. Sung-Jin Kim
 
 ## 🙏 Acknowledgments
 
-- Thanks to the authors of JEPA and Active Inference papers
-- Datasets providers: FER2013, AffectNet, CMU-MOSEI
-- Anonymous reviewers for valuable feedback
-
-## 📧 Contact
-
-For questions or collaborations:
-- Email: henry_seo@naver.com
-- Issues: [GitHub Issues](https://github.com/yourusername/hierarchical-ei/issues)
-
-## 🔗 Links
-
-- [Paper (arXiv)](https://arxiv.org/)
-- [Project Page](https://hierarchical-ei.github.io)
-- [Video Demo](https://youtube.com/)
-- [Supplementary Material](docs/supplementary.pdf)
+We thank the reviewers for their valuable feedback and the open-source community for the tools that made this research possible.
