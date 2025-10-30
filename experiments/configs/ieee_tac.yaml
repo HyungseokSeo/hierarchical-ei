@@ -1,0 +1,39 @@
+# Configuration for IEEE TAC submission experiments
+# Hierarchical Emotional Intelligence Model
+
+# Level 1: Micro-expressions
+level1_dim: 256
+level1_encoder_dims: [3, 64, 128, 256]
+level1_window_size: 15  # frames
+
+# Level 2: Emotional states  
+level2_dim: 512
+level2_heads: 8
+level2_layers: 6
+level2_window_size: 150  # ~5 seconds at 30fps
+
+# Level 3: Affective patterns
+level3_dim: 1024
+level3_memory_size: 100
+level3_memory_dim: 512
+
+# Active inference
+free_energy_beta: 0.1
+precision_lr: 0.01
+expected_free_energy_horizon: 10
+
+# Training
+learning_rate: 0.0001
+batch_size: 32
+warmup_steps: 10000
+
+# Dataset
+num_classes: 7  # FER2013 has 7 emotion classes
+image_size: 48  # FER2013 image size
+augmentation: true
+
+# Metrics
+use_ercs: true
+use_cedi: true
+ercs_weights: [0.2, 0.3, 0.5]
+cedi_alpha: 0.5
