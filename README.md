@@ -112,8 +112,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👤 Contact
 
 - **Author**: Hyungseok Seo
-- **Email**: [your-email]
-- **Lab**: Chungbuk National University, South Korea
+- **Email**: henry_seo@naver.com
+- **Lab**: Chungbuk National University, Rep. of Korea
 - **Advisor**: Prof. Sung-Jin Kim
 
 ## 🙏 Acknowledgments
