@@ -14,11 +14,11 @@ We welcome contributions to the Hierarchical EI project! This document provides 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/hierarchical-ei.git
+git clone https://github.com/HyungseokSeo/hierarchical-ei.git
 cd hierarchical-ei
 
 # Create virtual environment
-conda create -n hierarchical_ei_dev python=3.8
+conda create -n hierarchical_ei_dev python=3.11
 conda activate hierarchical_ei_dev
 
 # Install in development mode
@@ -211,5 +211,6 @@ Feel free to:
 - Open an issue for questions
 - Reach out via email
 - Join our Discord server (if applicable)
+
 
 Thank you for contributing to Hierarchical EI!
