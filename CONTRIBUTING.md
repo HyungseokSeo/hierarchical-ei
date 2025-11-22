@@ -204,6 +204,11 @@ Contributors will be recognized in:
 - Release notes
 - Paper acknowledgments (for significant contributions)
 
+## Contributing
+
+This is research code for IEEE TAC submission. For questions or collaborations, please contact:
+- Hyung-Seok Seo (henry_seo@naver.com)
+
 ## Questions?
 
 Feel free to:
