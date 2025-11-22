@@ -95,7 +95,7 @@ If you find this work useful, please cite:
 ```bibtex
 @article{seo2025hierarchical,
   title={Hierarchical Emotional Intelligence through Joint Embedding Predictive Architecture and Active Inference},
-  author={Seo, Hyungseok and Kim, Sung-Jin},
+  author={Seo, Hyungseok},
   journal={IEEE Transactions on Affective Computing (submitted)},
   year={2025}
 }
@@ -118,4 +118,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-We thank the reviewers for their valuable feedback and the open-source community for the tools that made this research possible.
+The author thanks Professor Sung-Jin Kim for invaluable guidance. Computational resources were provided by Chungbuk National University’s AI Research Center.
+I also thank the reviewers for their valuable feedback and the open-source community for the tools that made this research possible.
