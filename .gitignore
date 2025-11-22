@@ -6,9 +6,13 @@ __pycache__/
 .Python
 env/
 venv/
+ENV/
 *.egg-info/
 
 # Data
+data/fer2013/
+data/*.csv
+data/*.zip
 data/raw/
 data/processed/
 *.csv
@@ -26,7 +30,11 @@ checkpoints/
 .vscode/
 .idea/
 *.swp
+*.swo
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
