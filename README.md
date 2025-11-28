@@ -113,10 +113,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Author**: Hyungseok Seo
 - **Email**: henry_seo@naver.com
+<<<<<<< HEAD
 - **Lab**: Chungbuk National University, AI Research Center; Rep. of Korea
+=======
+- **Lab**: Chungbuk National University, Rep. of Korea
+>>>>>>> 58baede82d12c9d991ed22e7ab7618e3fcad3ba5
 - **Advisor**: Prof. Sung-Jin Kim
 
 ## 🙏 Acknowledgments
 
 The author thanks Professor Sung-Jin Kim for invaluable guidance. Computational resources were provided by Chungbuk National University’s AI Research Center.
+<<<<<<< HEAD
 I also thank the reviewers for their valuable feedback and the open-source community for the tools that made this research possible.
+=======
+I also thank the reviewers for their valuable feedback and the open-source community for the tools that made this research possible.
+>>>>>>> 58baede82d12c9d991ed22e7ab7618e3fcad3ba5
