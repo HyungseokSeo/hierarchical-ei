@@ -113,10 +113,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Author**: Hyungseok Seo
 - **Email**: henry_seo@naver.com
-- **Lab**: Chungbuk National University, Rep. of Korea
+- **Lab**: Chungbuk National University, AI Research Center; Rep. of Korea
 - **Advisor**: Prof. Sung-Jin Kim
 
 ## 🙏 Acknowledgments
 
-The author thanks Professor Sung-Jin Kim for invaluable guidance. Computational resources were provided by Chungbuk National University’s AI Research Center.
 I also thank the reviewers for their valuable feedback and the open-source community for the tools that made this research possible.
